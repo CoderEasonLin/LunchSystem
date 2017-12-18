@@ -1,4 +1,5 @@
 ﻿Feature: Menu
+	For menu page.
 
 @Order
 Scenario: OrderMeal
