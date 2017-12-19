@@ -15,13 +15,15 @@ namespace LunchSystem.Tests.Steps
         }
         
         [Given(@"enter the meal ""(.*)""")]
-        public void GivenEnterTheMeal(string p0)
+        public void GivenEnterTheMeal(string meal)
         {
+            driver.FindElementById("meal").SendKeys(meal);
         }
         
         [When(@"press order")]
         public void WhenPressOrder()
         {
+            driver.FindElementById("order").Click();
         }
         
         [Then(@"the result should ""(.*)"" in the ordered list")]
