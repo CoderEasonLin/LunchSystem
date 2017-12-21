@@ -8,6 +8,7 @@ Scenario: OrderMeal
 	When press order
 	Then the result should "Big Mac" in the ordered list
 
-Scenario: Menu
+Scenario: Page present
 	Given enter order page
 	Then can see the menu image
+	And can see the system logo

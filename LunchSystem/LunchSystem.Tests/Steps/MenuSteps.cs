@@ -7,7 +7,7 @@ namespace LunchSystem.Tests.Steps
     [Binding]
     public class MenuSteps
     {
-        ChromeDriver driver = new ChromeDriver();
+        static ChromeDriver driver = new ChromeDriver();
 
         [Given(@"enter order page")]
         public void GivenEnterOrderPage()
@@ -40,9 +40,15 @@ namespace LunchSystem.Tests.Steps
             Assert.IsNotNull(driver.FindElementById("menu").GetAttribute("src"));
         }
 
+        [Then(@"can see the system logo")]
+        public void ThenCanSeeTheSystemLogo()
+        {
+            Assert.IsTrue(driver.FindElementById("logo").Displayed);
+        }
 
-        [After()]
-        public void TearDown()
+
+        [AfterFeature]
+        public static void TearDown()
         {
             driver.Close();
             driver.Quit();
