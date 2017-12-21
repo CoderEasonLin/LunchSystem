@@ -33,6 +33,13 @@ namespace LunchSystem.Tests.Steps
             Assert.AreEqual(expectedMeal, driver.FindElementById("ordered").Text);
         }
 
+        [Then(@"can see the menu image")]
+        public void ThenCanSeeTheMenuImage()
+        {
+            Assert.AreEqual("img", driver.FindElementById("menu").TagName);
+        }
+
+
         [After()]
         public void TearDown()
         {

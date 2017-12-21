@@ -7,3 +7,7 @@ Scenario: OrderMeal
 	And enter the meal "Big Mac"
 	When press order
 	Then the result should "Big Mac" in the ordered list
+
+Scenario: Menu
+	Given enter order page
+	Then can see the menu image
