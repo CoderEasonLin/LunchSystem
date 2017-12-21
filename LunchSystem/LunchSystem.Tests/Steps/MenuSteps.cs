@@ -37,6 +37,7 @@ namespace LunchSystem.Tests.Steps
         public void ThenCanSeeTheMenuImage()
         {
             Assert.AreEqual("img", driver.FindElementById("menu").TagName);
+            Assert.IsNotNull(driver.FindElementById("menu").GetAttribute("src"));
         }
 
 
