@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
+using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
 namespace LunchSystem.Tests.Steps
@@ -27,8 +28,9 @@ namespace LunchSystem.Tests.Steps
         }
         
         [Then(@"the result should ""(.*)"" in the ordered list")]
-        public void ThenTheResultShouldInTheOrderedList(string p0)
+        public void ThenTheResultShouldInTheOrderedList(string expectedMeal)
         {
+            Assert.AreEqual(expectedMeal, driver.FindElementById("ordered").Text);
         }
 
         [After()]
