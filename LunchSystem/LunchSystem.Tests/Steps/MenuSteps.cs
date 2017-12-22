@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
@@ -7,51 +8,73 @@ namespace LunchSystem.Tests.Steps
     [Binding]
     public class MenuSteps
     {
-        static ChromeDriver driver = new ChromeDriver();
+        private static ChromeDriver _driver = new ChromeDriver();
+
+        private string _name = String.Empty;
+        private string _meal = String.Empty;
+        private int _price = 0;
 
         [Given(@"enter order page")]
         public void GivenEnterOrderPage()
         {
-            driver.Navigate().GoToUrl("http://localhost:50621/");
+            _driver.Navigate().GoToUrl("http://localhost:50621/");
         }
         
         [Given(@"enter the meal ""(.*)""")]
         public void GivenEnterTheMeal(string meal)
         {
-            driver.FindElementById("meal").SendKeys(meal);
+            _meal = meal;
+            _driver.FindElementById("meal").SendKeys(meal);
         }
-        
+
+        [Given(@"enter the name ""(.*)""")]
+        public void GivenEnterTheName(string name)
+        {
+            _name = name;
+            _driver.FindElementById("name").SendKeys(name);
+        }
+
+        [Given(@"enter the price ""(.*)""")]
+        public void GivenEnterThePrice(int price)
+        {
+            _price = price;
+            _driver.FindElementById("price").SendKeys(price.ToString());
+        }
+
         [When(@"press order")]
         public void WhenPressOrder()
         {
-            driver.FindElementById("order").Click();
+            _driver.FindElementById("order").Click();
         }
-        
-        [Then(@"the result should ""(.*)"" in the ordered list")]
-        public void ThenTheResultShouldInTheOrderedList(string expectedMeal)
+
+        [Then(@"the order should show in the ordered list")]
+        public void ThenTheOrderShouldShowInTheOrderedList()
         {
-            Assert.AreEqual(expectedMeal, driver.FindElementById("ordered").Text);
+            Assert.AreEqual(_name, _driver.FindElementById("whoOrder").Text);
+            Assert.AreEqual(_meal, _driver.FindElementById("whatOrder").Text);
+            Assert.AreEqual(_price, _driver.FindElementById("howMuchOrder").Text);
         }
+
 
         [Then(@"can see the menu image")]
         public void ThenCanSeeTheMenuImage()
         {
-            Assert.AreEqual("img", driver.FindElementById("menu").TagName);
-            Assert.IsNotNull(driver.FindElementById("menu").GetAttribute("src"));
+            Assert.AreEqual("img", _driver.FindElementById("menu").TagName);
+            Assert.IsNotNull(_driver.FindElementById("menu").GetAttribute("src"));
         }
+
 
         [Then(@"can see the system logo")]
         public void ThenCanSeeTheSystemLogo()
         {
-            Assert.IsTrue(driver.FindElementById("logo").Displayed);
+            Assert.IsTrue(_driver.FindElementById("logo").Displayed);
         }
-
 
         [AfterFeature]
         public static void TearDown()
         {
-            driver.Close();
-            driver.Quit();
+            _driver.Close();
+            _driver.Quit();
         }
     }
 }
