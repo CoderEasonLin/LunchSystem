@@ -7,9 +7,9 @@
     <script type="text/javascript">
 
         var order = function() {
-            $("#whoOrder").innerText = $("#name").value;
-            $("#whatOrder").innerText = $("#meal").value;
-            $("#howMuchOrder").innerText = $("#price").value;
+            $("#whoOrder").text($("#name").val());
+            $("#whatOrder").text($("#meal").val());
+            $("#howMuchOrder").text($("#price").val());
         }
     </script>
 </head>

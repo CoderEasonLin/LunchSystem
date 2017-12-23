@@ -52,7 +52,7 @@ namespace LunchSystem.Tests.Steps
         {
             Assert.AreEqual(_name, _driver.FindElementById("whoOrder").Text);
             Assert.AreEqual(_meal, _driver.FindElementById("whatOrder").Text);
-            Assert.AreEqual(_price, _driver.FindElementById("howMuchOrder").Text);
+            Assert.AreEqual(_price, Convert.ToInt32(_driver.FindElementById("howMuchOrder").Text));
         }
 
 
