@@ -75,14 +75,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
  testRunner.Given("enter order page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.And("enter the name \"Tom\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("enter the order \"Tom\", \"Big Mac\", \"90\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 8
- testRunner.And("enter the meal \"Big Mac\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
- testRunner.And("enter the price \"90\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
  testRunner.When("press order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
+#line 9
  testRunner.Then("the order should show in the ordered list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -93,13 +89,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void PagePresent()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Page present", ((string[])(null)));
-#line 13
+#line 11
 this.ScenarioSetup(scenarioInfo);
-#line 14
+#line 12
  testRunner.Given("enter order page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
+#line 13
  testRunner.Then("can see the menu image", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 16
+#line 14
  testRunner.And("can see the system logo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

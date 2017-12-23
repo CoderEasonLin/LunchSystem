@@ -4,9 +4,7 @@
 @Order
 Scenario: OrderMeal
 	Given enter order page
-	And enter the name "Tom"
-	And enter the meal "Big Mac"
-	And enter the price "90"
+	And enter the order "Tom", "Big Mac", "90"
 	When press order
 	Then the order should show in the ordered list
 

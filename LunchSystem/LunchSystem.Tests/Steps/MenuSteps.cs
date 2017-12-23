@@ -19,24 +19,16 @@ namespace LunchSystem.Tests.Steps
         {
             _driver.Navigate().GoToUrl("http://localhost:50621/");
         }
-        
-        [Given(@"enter the meal ""(.*)""")]
-        public void GivenEnterTheMeal(string meal)
+
+        [Given(@"enter the order ""(.*)"", ""(.*)"", ""(.*)""")]
+        public void GivenEnterTheOrder(string name, string meal, int price)
         {
             _meal = meal;
             _driver.FindElementById("meal").SendKeys(meal);
-        }
 
-        [Given(@"enter the name ""(.*)""")]
-        public void GivenEnterTheName(string name)
-        {
             _name = name;
             _driver.FindElementById("name").SendKeys(name);
-        }
 
-        [Given(@"enter the price ""(.*)""")]
-        public void GivenEnterThePrice(int price)
-        {
             _price = price;
             _driver.FindElementById("price").SendKeys(price.ToString());
         }
