@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Reflection;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace LunchSystem
@@ -9,6 +10,8 @@ namespace LunchSystem
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            AutofacConfig.Register();
         }
     }
 }

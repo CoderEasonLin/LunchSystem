@@ -1,4 +1,4 @@
-﻿
+﻿@model List<LunchSystem.Models.OrderRequest>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -18,11 +18,36 @@
 
 <img id="menu" src="~/Images/Menus/default.jpg" />
 
-<input id="name" type="text" />
-<input id="meal" type="text" />
-<input id="price" type="text" />
+<div>
+    <form action="~/Home/Order" method="post">
+        <input name="name" type="text"/>
+        <input name="meal" type="text"/>
+        <input name="price" type="text"/>
 
-<input id="order" type="button" value="Order" onclick="javascript:order();" />
+        <input id="order" type="submit" value="Order" />
+    </form>
+    
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Meal</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@order.Name</td>
+            <td>@order.Meal</td>
+            <td>@order.Price</td>
+        </tr>    
+    }
+    </tbody>
+</table>
 
 <div id="whoOrder"></div>
 <div id="whatOrder"></div>

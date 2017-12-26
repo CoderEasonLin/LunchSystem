@@ -23,14 +23,14 @@ namespace LunchSystem.Tests.Steps
         [Given(@"enter the order ""(.*)"", ""(.*)"", ""(.*)""")]
         public void GivenEnterTheOrder(string name, string meal, int price)
         {
-            _meal = meal;
-            _driver.FindElementById("meal").SendKeys(meal);
-
             _name = name;
-            _driver.FindElementById("name").SendKeys(name);
+            _driver.FindElementByName("name").SendKeys(name);
+
+            _meal = meal;
+            _driver.FindElementByName("meal").SendKeys(meal);
 
             _price = price;
-            _driver.FindElementById("price").SendKeys(price.ToString());
+            _driver.FindElementByName("price").SendKeys(price.ToString());
         }
 
         [When(@"press order")]
